@@ -1,3 +1,6 @@
+import dotenv from dotenv;
+dotenv.config();
+
 function ShowAnswer(response) {
   //alert(response.data.answer);
   new Typewriter("#joke", {
@@ -9,7 +12,7 @@ function ShowAnswer(response) {
 }
 
 let generateJoke = () => {
-  let apiKey = "6557bae1f19ecd4eect5adbe4o7e0153";
+  let apiKey = process.env.API_KEY;
   let context = "be polite and provide a very short answer";
   let prompt = "Tell me a joke about French people";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
